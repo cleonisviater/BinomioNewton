@@ -1,0 +1,28 @@
+# Binômio de Newton - R
+
+binomio_newton <- function() {
+  n <- as.integer(readline("Digite o valor do expoente: "))
+  print(expand.grid(rep(list(0:1), n)))
+}
+binomio_newton()
+
+# Triângulo de Pascal
+triangulo_pascal <- function() {
+  N <- as.integer(readline("Digite o número de linhas para o Triângulo de Pascal: "))
+  matriz <- matrix(0, nrow=N, ncol=N)
+  for (i in 1:N) {
+    matriz[i, 1] <- 1
+    for (j in 2:i) {
+      matriz[i, j] <- matriz[i-1, j-1] + matriz[i-1, j]
+    }
+  }
+  print(matriz)
+}
+triangulo_pascal()
+
+# Distribuição Binomial
+n <- as.integer(readline("Digite o número de tentativas da distribuição binomial: "))
+p <- as.numeric(readline("Digite a probabilidade de sucesso: "))
+x <- 0:n
+binomialDist <- dbinom(x, n, p)
+print(binomialDist)
