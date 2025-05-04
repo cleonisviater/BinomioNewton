@@ -1,0 +1,26 @@
+using SymPy, Distributions
+
+# Binômio de Newton - julia
+@vars x y
+n = parse(Int, readline("Digite o valor do expoente: "))
+println(expand((x + y)^n))
+
+# Triângulo de Pascal
+function pascal_triangle()
+    N = parse(Int, readline("Digite o número de linhas para o Triângulo de Pascal: "))
+    pascalTri = zeros(Int, N, N)
+    for i in 1:N
+        pascalTri[i,1] = 1
+        for j in 2:i
+            pascalTri[i,j] = pascalTri[i-1,j-1] + pascalTri[i-1,j]
+        end
+    end
+    return pascalTri
+end
+println(pascal_triangle())
+
+# Distribuição Binomial
+n = parse(Int, readline("Digite o número de tentativas da distribuição binomial: "))
+p = parse(Float64, readline("Digite a probabilidade de sucesso: "))
+binomialDist = pdf.(Binomial(n, p), 0:n)
+println(binomialDist)
