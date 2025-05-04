@@ -1,0 +1,23 @@
+% Binômio de Newton - MatLab
+
+syms x y;
+n = input('Digite o valor do expoente: ');
+disp(expand((x + y)^n))
+
+% Triângulo de Pascal
+N = input('Digite o número de linhas para o Triângulo de Pascal: ');
+pascalTri = zeros(N);
+for i = 1:N
+    pascalTri(i,1) = 1;
+    for j = 2:i
+        pascalTri(i,j) = pascalTri(i-1,j-1) + pascalTri(i-1,j);
+    end
+end
+disp(pascalTri)
+
+% Distribuição Binomial
+n = input('Digite o número de tentativas da distribuição binomial: ');
+p = input('Digite a probabilidade de sucesso: ');
+x = 0:n;
+binomialDist = binopdf(x, n, p);
+disp(binomialDist)
